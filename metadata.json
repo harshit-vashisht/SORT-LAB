@@ -1,0 +1,6 @@
+{
+  "name": "SORT//LAB — Computational Atelier & Skill Map",
+  "description": "An interactive learning platform and topological skill map for algorithmic foundations, matrices, and sorting protocols.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

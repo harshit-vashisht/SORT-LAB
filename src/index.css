@@ -1,0 +1,172 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --background: #F2F0E7;
+    --foreground: #1C1B17;
+    --card: #FBFAF5;
+    --card-foreground: #1C1B17;
+    --popover: #FBFAF5;
+    --popover-foreground: #1C1B17;
+    --muted: #EAE7DC;
+    --muted-foreground: #54534A;
+    --border: #DAD6C8;
+    --input: #DAD6C8;
+    --primary: #597346;
+    --primary-foreground: #FBFAF5;
+    --secondary: #E5E1D3;
+    --secondary-foreground: #1C1B17;
+    --accent: #597346;
+    --accent-foreground: #FBFAF5;
+    --destructive: #C8412F;
+    --destructive-foreground: #FBFAF5;
+    --warning: #C98A1B;
+    --success: #3B7A57;
+    --ring: rgba(89, 115, 70, 0.4);
+    --radius: 10px;
+
+    --text-primary: #1C1B17;
+    --text-secondary: #54534A;
+    --surface: #FBFAF5;
+    --surface-hover: #EAE7DC;
+
+    --font-sans: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'Geist Mono', monospace;
+    --font-serif: 'Instrument Serif', Georgia, serif;
+  }
+
+  .dark {
+    --background: #0E0F0C;
+    --foreground: #ECEBE3;
+    --card: #151712;
+    --card-foreground: #ECEBE3;
+    --popover: #151712;
+    --popover-foreground: #ECEBE3;
+    --muted: #1C1E17;
+    --muted-foreground: #9C9B90;
+    --border: #272A22;
+    --input: #272A22;
+    --primary: #9BD77A;
+    --primary-foreground: #0E0F0C;
+    --secondary: #1F221B;
+    --secondary-foreground: #ECEBE3;
+    --accent: #9BD77A;
+    --accent-foreground: #0E0F0C;
+    --destructive: #C8412F;
+    --destructive-foreground: #ECEBE3;
+    --warning: #C98A1B;
+    --success: #9BD77A;
+    --ring: rgba(155, 215, 122, 0.4);
+    --text-primary: #ECEBE3;
+    --text-secondary: #9C9B90;
+    --surface: #151712;
+    --surface-hover: #1C1E17;
+  }
+
+  html, body {
+    max-width: 100vw;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+  }
+
+  * {
+    border-color: var(--border);
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    line-height: 1.5;
+  }
+
+  code, pre, .font-mono {
+    font-family: var(--font-mono);
+  }
+
+  .font-serif-italic {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+  }
+}
+
+/* Color utility classes mapped to CSS variables */
+.bg-background { background-color: var(--background); }
+.text-foreground { color: var(--foreground); }
+.bg-card { background-color: var(--card); }
+.text-card-foreground { color: var(--card-foreground); }
+.bg-muted { background-color: var(--muted); }
+.text-muted-foreground { color: var(--muted-foreground); }
+.border-border { border-color: var(--border); }
+.bg-primary { background-color: var(--primary); }
+.text-primary { color: var(--primary); }
+.text-primary-foreground { color: var(--primary-foreground); }
+.bg-secondary { background-color: var(--secondary); }
+.text-secondary-foreground { color: var(--secondary-foreground); }
+.bg-accent { background-color: var(--accent); }
+.text-accent { color: var(--accent); }
+.border-accent { border-color: var(--accent); }
+.text-warning { color: var(--warning); }
+.bg-warning { background-color: var(--warning); }
+.border-warning { border-color: var(--warning); }
+.text-destructive { color: var(--destructive); }
+.bg-destructive { background-color: var(--destructive); }
+.text-success { color: var(--success); }
+.bg-success { background-color: var(--success); }
+
+/* Lift-up Transition Animation System (180ms - 280ms) */
+@keyframes liftUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.lift-up {
+  animation: liftUp 240ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.lift-up-delay-1 {
+  animation: liftUp 260ms cubic-bezier(0.16, 1, 0.3, 1) 60ms both;
+}
+
+.lift-up-delay-2 {
+  animation: liftUp 280ms cubic-bezier(0.16, 1, 0.3, 1) 120ms both;
+}
+
+.lift-up-delay-3 {
+  animation: liftUp 300ms cubic-bezier(0.16, 1, 0.3, 1) 180ms both;
+}
+
+/* Reduced motion accessibility support */
+@media (prefers-reduced-motion: reduce) {
+  .lift-up,
+  .lift-up-delay-1,
+  .lift-up-delay-2,
+  .lift-up-delay-3 {
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
+/* Editorial print styling for summary export */
+@media print {
+  body {
+    background-color: #FFFFFF !important;
+    color: #1C1B17 !important;
+  }
+  header, footer, nav, button:not(.printable-include) {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+}
